@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-module MongoConnet {
+export module MongoConnect {
 
 let db;
 
