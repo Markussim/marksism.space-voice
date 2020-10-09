@@ -1,7 +1,9 @@
 import ejs from "ejs";
 import express from 'express';
-//const mongoose = require('mongoose');
+import { MongoConnect } from './mongo';
 
+//const mongoose = require('mongoose');
+MongoConnect.cnctDB("MarksismVoice")
 const app = express()
 const port = 3000
 
