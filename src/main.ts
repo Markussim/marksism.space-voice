@@ -37,16 +37,18 @@ app.get('/', (req, res) => res.redirect(307, '/chat'))
 
 app.post('/chat', async (req, res) =>  {
     MongoConnect.saveToDB(createEntry(req.body.message))
-    //res.redirect('/chat')
-    
-    await res.send(MongoConnect.getMessages());
-
-    await console.log(MongoConnect.getMessages());
+    res.redirect('/chat')
 })
 
-app.get('/chat', (req, res) => {
+app.get('/chat', async (req, res) => {
+
+    let messages = await MongoConnect.getCursor(messageDoc)
+
+    //res.send(messages);
+
+    console.log(messages);
     
-    res.render("pages/index.ejs")
+    res.render("pages/index.ejs", {messages: messages})
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
