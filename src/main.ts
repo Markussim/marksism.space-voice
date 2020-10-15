@@ -65,6 +65,6 @@ app.get('/update', (req, res) => {
         res.send("An update is availeble")
         console.log("Finished update request")
     });
-})
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
