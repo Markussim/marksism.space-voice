@@ -27,4 +27,8 @@ export module MongoConnect {
   export async function getCursor(model: any) {
     return await model.find({});
   }
+
+  export function getDB() {
+    return db;
+  }
 }

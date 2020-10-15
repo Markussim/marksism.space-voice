@@ -5,19 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <style>
-        
-    </style>
+    <script>
+        const Http = new XMLHttpRequest();
+        const url = 'http://localhost:3000/update';
+        Http.open("GET", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+            console.log(Http.responseText)
+            location.reload();
+        }
+    </script>
 </head>
 
 <body>
-    <form method="POST" action="/chat">
+    <form method="POST" action="/chatt">
         <input type="text" name="message" placeholder="Your message here"><br>
         <input type="submit" value="Submit">
-    </form> 
+    </form>
 
     <% for( let index = 0; index < messages.length; index++ ) { %>
-        <p id=<%-index%>><%- messages[index].message %> </p>
+    <p id=<%-index%>><%- messages[index].message %> </p>
     <% } %>
 </body>
 
